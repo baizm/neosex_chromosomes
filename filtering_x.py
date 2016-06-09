@@ -29,3 +29,9 @@ subprocess.call("bcftools view -S %s %sapi_50.recode.vcf > %sapi_F.vcf" % (api_F
 subprocess.call("bcftools view -S %s %sapi_50.recode.vcf > %sapi_M.vcf" % (api_M, out_dir, out_dir), shell=True)
 subprocess.call("bcftools view -S %s %sapm_50.recode.vcf > %sapm_F.vcf" % (apm_F, out_dir, out_dir), shell=True)
 subprocess.call("bcftools view -S %s %sapm_50.recode.vcf > %sapm_M.vcf" % (apm_M, out_dir, out_dir), shell=True)
+
+#calculating mean depth per site
+subprocess.call("%s --vcf apm_M.vcf --site-mean-depth --out depth_apm_M" % (vcftools), shell=True)
+subprocess.call("%s --vcf apm_F.vcf --site-mean-depth --out depth_apm_F" % (vcftools), shell=True)
+subprocess.call("%s --vcf api_M.vcf --site-mean-depth --out depth_api_M" % (vcftools), shell=True)
+subprocess.call("%s --vcf api_F.vcf --site-mean-depth --out depth_api_F" % (vcftools), shell=True)
