@@ -19,3 +19,6 @@ x2_loci<-data.frame(loci=paste(x2$contig, x2$pos))
 #find shared log2(F:M)>0.5 sites
 shared<-merge(x_loci,x2_loci) #7176 loci!
 write.table(shared, file='candidateX1X2_shared.txt', quote=F, row.names=F, col.names=F)
+
+#then use get_SNP_seqs.py & cat candidateX1X2_shared300bp.txt | xargs -n 1 samtools faidx ../../reference_genome/AloPal_combined.a.lines.fasta > candidateX1X2_shared300bp.fasta 
+#to extract candidate X1X2 sequences from reference
